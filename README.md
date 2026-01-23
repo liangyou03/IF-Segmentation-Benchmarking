@@ -7,8 +7,6 @@ The repository collects end-to-end workflows for:
 - **Heart cohort** – data preparation, algorithm runners, morphology-based classification, and publication-ready figures.
 - **Pathology cohort** – NeuN supplementation/aggregation, batch processing, and clinical correlation analyses.
 
-All projects share the same `Data/` root so that absolute paths are no longer required when sharing or publishing the code.
-
 ---
 
 ## Repository Layout
@@ -17,7 +15,7 @@ All projects share the same `Data/` root so that absolute paths are no longer re
 Brain/        # Scripts to preprocess, segment, and evaluate the brain IF dataset
 Heart/        # Heart pipeline (data prep, segmentation, evaluation, visualization)
 Pathology/    # Pathology-specific aggregation and analysis scripts
-Data/         # Expected location for raw and processed data assets (not tracked)
+Data/         # Expected location for raw and processed data assets (download through link)
 Usability/    # Utility scripts for environment profiling
 Python.gitignore
 ```
@@ -28,39 +26,20 @@ Each top-level module now contains a `_paths.py` helper that discovers the repos
 from _paths import DATA_ROOT, IFIMAGE_ROOT, HEART_DATA_ROOT
 ```
 
-Any new script should import these helpers instead of hard-coding `/ihome/...` or other machine-specific directories.
-
 ---
 
-## Getting Started
+All data used in this benchmarking can be found at [this link](https://drive.google.com/file/d/18X-1QAe5xseo5wJZaTeKlYdwkG3d7AXc/view?usp=drive_link).
 
-1. **Clone the repository**
+```
+Data/
+├── ifimage/                   # shared IF dataset root
+│   ├── heart/...
+│   ├── 00_dataset_withoutpecam/...
+│   └── evaluation_results/...
+└── ... (custom folders per cohort)
+```
 
-   ```bash
-   git clone git@github.com:liangyou03/IF-Segmentation-Benchmarking.git
-   cd IF-Segmentation-Benchmarking
-   ```
-
-2. **Create a Python environment**
-
-   ```bash
-   conda create -n if-benchmark python=3.10
-   conda activate if-benchmark
-   pip install -r requirements.txt  # create this file to match your setup
-   ```
-
-3. **Organize data under `Data/`**
-
-   ```
-   Data/
-   ├── ifimage/                   # shared IF dataset root
-   │   ├── heart/...
-   │   ├── 00_dataset_withoutpecam/...
-   │   └── evaluation_results/...
-   └── ... (custom folders per cohort)
-   ```
-
-   Adjust the subdirectories to mirror the original storage layout. The helper modules assume `Data/ifimage/...`.
+Adjust the subdirectories to mirror the original storage layout. The helper modules assume `Data/ifimage/...`.
 
 ---
 
@@ -71,7 +50,7 @@ Any new script should import these helpers instead of hard-coding `/ihome/...` o
 2. Run segmentation for a method, e.g.:
 
    ```bash
-   python Brain/cellsam/prediction_cyto.py
+   python Brain/cellpose/prediction_cyto.py
    ```
 
 3. Evaluate and visualize:
@@ -82,6 +61,7 @@ Any new script should import these helpers instead of hard-coding `/ihome/...` o
    ```
 
 ### Heart
+
 1. Prepare channel-separated TIFFs:
 
    ```bash
@@ -111,18 +91,3 @@ Any new script should import these helpers instead of hard-coding `/ihome/...` o
    python Pathology/merge_and_aggregate.py
    python Pathology/aggregate_unified.py
    ```
-
----
-
-## Contributing
-
-1. Fork and create a feature branch.
-2. Add or update scripts using `_paths.py` for any filesystem references.
-3. Run `python -m compileall <script>` or unit tests if provided.
-4. Submit a pull request detailing the cohort(s) touched and any data assumptions.
-
----
-
-## License
-
-This project aggregates research utilities; please consult the LICENSE file (or project owners) before using the code in external products. Data under `Data/` is not tracked by Git and must be sourced according to your institutional agreements.
