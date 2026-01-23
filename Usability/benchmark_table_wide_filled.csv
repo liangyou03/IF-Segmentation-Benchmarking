@@ -1,0 +1,11 @@
+algorithm,group,summary__overall_rank,summary__accuracy_rank,summary__usability_rank,total_score,acc__score_std,acc__score,acc__cell_brain__precision_iou50,acc__cell_brain__recall_iou50,acc__cell_brain__boundary_f1,acc__heart_cell__recall_iou50,usab__rank,usab__time_rank,usab__code_behavior,usab__dependence,runtime_seconds,env_size_gb,num_packages,acc__nuclei__precision_iou50,acc__nuclei__recall_iou50,acc__nuclei__boundary_f1,brain_nuclei_AP,brain_cell_AP
+CellposeSAM,Pretrained Models,,,,,,,0.405,0.71,0.652,0.954,8,3,0.8,,3.05,6.4,231,0.9081,0.8959,0.9706,0.47,0.19
+Stardist,Deep Learning,,,,,,,0.27,0.459,0.736,0.885,3,2,1,,2.03,4.3,153,0.84,0.9023,0.9716,0.42,0.1
+Mesmer,Deep Learning,,,,,,,0.335,0.699,0.661,0.76,6,9,0.8,,5.18,3.7,196,0.7722,0.873,0.9599,0.28,0.12
+CellSAM,Pretrained Models,,,,,,,0.334,0.7,0.666,0.75,9,8,0.2,,8.77,6.4,231,0.5914,0.7872,0.9503,0.24,0.13
+LACSS,Deep Learning,,,,,,,0.43,0.748,0.705,0.339,2,5,0.8,,6.21,3.9,99,0.8631,0.7908,0.9636,0.36,0.19
+watershed,Classic,,,,,,,0.269,0.421,0.635,0.522,1,1,0.8,,1.62,0.8,85,0.819,0.4843,0.9029,0.22,0.11
+SplineDist,Deep Learning,,,,,,,0.383,0.459,0.698,0.48,4,6,0.8,,6.82,1.5,93,0.8195,0.8925,0.9687,0.39,0.16
+Omnipose,Deep Learning,,,,,,,0.25,0.545,0.599,0.701,6,7,0.6,,3.27,6.4,201,0.8805,0.9283,0.9734,0.47,0.09
+MicroSAM,Pretrained Models,,,,,,,0.154,0.419,0.537,0.131,10,10,0.2,,6.61,4.9,256,0.3637,0.2697,0.7992,0.05,0.05
+InstanSeg,Deep Learning,,,,,,,0.395,0.789,0.695,0.9149,5,4,0.6,,5.26,1.2,139,0.9109,0.7863,0.9284,0.4,0.18
